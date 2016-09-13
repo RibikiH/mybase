@@ -26,7 +26,6 @@ if (php_sapi_name() === 'cli-server') {
 }
 
 require dirname(__DIR__) . '/config/bootstrap.php';
-require_once ROOT . DS . 'src/Controller/Common.php';
 
 use Cake\Network\Request;
 use Cake\Network\Response;

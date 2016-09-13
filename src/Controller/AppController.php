@@ -15,14 +15,9 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Core\Configure;
 use Cake\Event\Event;
 
-/**
- * Class AppController
- *
- * @property CommonComponent Common
- * @property EasyLogComponent EasyLog
- */
 class AppController extends Controller
 {
 
@@ -41,6 +36,7 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        Configure::load('common');
     }
 
     /**
