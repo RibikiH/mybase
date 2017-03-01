@@ -1,8 +1,12 @@
+<?php
+use Cake\Core\Configure;
+?>
+
 <?= $this->Html->charset() ?>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>
-    <?= $this->fetch('title') ?>
-</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <?= $this->fetch('title') . ' | ' .  Configure::read('admin_title')?>
+    </title>
 <?= $this->Html->meta('icon') ?>
 
 <?= $this->element('Admin/common_js_css') ; ?>

@@ -1,10 +1,47 @@
-msgid "Username or password is incorrect"
-msgstr "Ten dang nhap hoac mat khau sai cmn roi"
+msgid "Email or password is incorrect"
+msgstr "Email hoặc mật khẩu sai"
+
 msgid "Add member"
 msgstr "Thêm thành viên"
+
 msgid "Username"
 msgstr "Tên đăng nhập"
+
 msgid "Password"
 msgstr "Mật khẩu"
+
 msgid "Role"
 msgstr "Vị trí"
+
+msgid "Notice"
+msgstr "Thông báo"
+
+msgid "Sign in to start your session"
+msgstr "Đăng nhập để bắt đầu phiên làm việc"
+
+msgid "Remember Me"
+msgstr "Ghi Nhớ"
+
+msgid "Sign In"
+msgstr "Đăng Nhập"
+
+msgid "Dashboard"
+msgstr "Bảng điều khiển"
+
+msgid "User Registrations"
+msgstr "Người dùng đăng ký"
+
+msgid "Sign out"
+msgstr "Đăng xuất"
+
+msgid "MAIN NAVIGATION"
+msgstr "MENU CHÍNH"
+
+msgid "Options Admin"
+msgstr "Tùy Chọn Admin"
+
+msgid "More info"
+msgstr "Xem thêm"
+
+msgid "Users"
+msgstr "Người dùng"

@@ -2,11 +2,17 @@
 
 namespace App\Model\Table;
 
+use App\Model\Table\DefaultTable;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\Log\Log;
 
-class UserTable extends Table
+class UserTable extends DefaultTable
 {
+    public function initialize(array $config)
+    {
+        $this->table('users');
+    }
 
     public function validationDefault(Validator $validator)
     {
@@ -21,10 +27,5 @@ class UserTable extends Table
             ->add('username', [
                 'unique' => ['rule' => 'validateUnique', 'provider' => 'table', 'message' => 'Not unique']
             ]);
-    }
-
-    public function getById($id)
-    {
-        return $this->get($id);
     }
 }

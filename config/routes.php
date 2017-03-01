@@ -79,7 +79,7 @@ Router::scope('/', function (RouteBuilder $routes) {
  * how to customize the loading of plugin routes.
  */
 Router::connect('/login', array('controller' => 'User', 'action' => 'login'));
-Router::connect('/admin', array('controller' => 'User', 'action' => 'login', 'prefix'=> 'admin'));
+Router::connect('/admin', array('controller' => 'DashBoard', 'action' => 'index', 'prefix'=> 'admin'));
 Router::extensions(['json', 'xml']);
 
 Router::prefix('admin', function ($routes) {

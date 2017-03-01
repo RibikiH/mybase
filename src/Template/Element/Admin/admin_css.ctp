@@ -1,6 +1,6 @@
 <?= $this->Html->css([
-    'admin/metisMenu.min.css',
-    'admin/dataTables.bootstrap.css',
-    'admin/sb-admin-2.css',
-    'admin/dataTables.responsive.css',
+    'admin/AdminLTE.min.css',
+    'admin/skins/_all-skins.min.css',
+    'admin/ionicons.min.css',
+    'admin/admin.css'
 ]) ?>

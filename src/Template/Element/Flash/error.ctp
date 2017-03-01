@@ -1,1 +1,3 @@
-<div class="message error" onclick="this.classList.add('hidden');"><?= h($message) ?></div>
+<div class="callout callout-danger" onclick="this.classList.add('hidden');">
+    <p><?= h($message) ?></p>
+</div>

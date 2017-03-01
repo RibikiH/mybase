@@ -5,5 +5,6 @@
 
 <?= $this->Html->script([
     'common/jquery.min.js',
-    'common/bootstrap.min.js'
+    'common/bootstrap.min.js',
+    'common/jquery.lazy.min.js'
 ]); ?>

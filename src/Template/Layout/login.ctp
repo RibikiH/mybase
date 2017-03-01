@@ -13,59 +13,66 @@
     <?= $this->Html->css([
         'common/bootstrap.min.css',
         'common/font-awesome.min.css',
-        'admin/metisMenu.min.css',
-        'admin/sb-admin-2.css'
+        'admin/AdminLTE.min.css',
+        'admin/skins/_all-skins.min.css',
+        'admin/admin.css',
+        'iCheck/square/blue.css'
     ]) ?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <?= $this->Html->script([
+        'common/jquery.min.js',
+        'common/bootstrap.min.js',
+        'common/jquery.lazy.min.js',
+        'admin/icheck.min.js'
+    ]); ?>
 
 </head>
-<body>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="login-panel panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Please Sign In</h3>
-                </div>
-                <div class="panel-body">
-                    <form role="form">
-                        <fieldset>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="<?= __('Username') ?>" name="username" type="text" autofocus>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="<?= __('Password') ?>" name="password" type="password" value="">
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                </label>
-                            </div>
-                            <!-- Change this to a button or input when using this as a form -->
-                            <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
-                        </fieldset>
-                    </form>
-                </div>
+<body class="hold-transition login-page" style="overflow: hidden">
+<div class="login-box">
+    <div class="login-logo">
+        <a href="<?= $this->Url->build('/admin', true); ?>"><b>Admin</b>LTE</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <p class="login-box-msg"><?= __("Sign in to start your session")?></p>
+        <?= $this->Flash->render() ?>
+        <form action="<?= $this->Url->build('/admin/user/login', true); ?>" method="post">
+            <div class="form-group has-feedback">
+                <input type="email" class="form-control" placeholder="Email" name="email">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
-        </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="<?= __("Password") ?> " name="password">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="checkbox icheck">
+                        <label>
+                            <input type="checkbox"> <?= __("Remember Me") ?>
+                        </label>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat"><?= __("Sign In") ?></button>
+                </div>
+                <!-- /.col -->
+            </div>
+        </form>
+
+
     </div>
 </div>
 
-
-<?= $this->Html->script([
-    'common/bootstrap.min.js',
-    'admin/metisMenu.min.js',
-    'admin/sb-admin-2.js'
-]) ?>
-
+<script>
+    $(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
+    });
+</script>
 </body>
 
 </html>

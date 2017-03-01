@@ -20,10 +20,15 @@ class AdminController extends AppController
             'authError' =>  __('WRONG_USERNAME_OR_PASSWORD'),
             'storage' => 'Session',
             'loginRedirect' => array(
-                'controller' => 'User',
+                'controller' => 'Dashboard',
                 'action' => 'index',
                 'prefix' => 'admin'
             ),
+            'authenticate' => array(
+                'Form' => array(
+                    'fields' => array('username' => 'email')
+                )
+            )
         ]);
         $this->viewBuilder()->layout('admin');
     }
