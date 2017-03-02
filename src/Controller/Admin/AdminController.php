@@ -28,7 +28,12 @@ class AdminController extends AppController
                 'Form' => array(
                     'fields' => array('username' => 'email')
                 )
-            )
+            ),
+            'logoutRedirect' => [
+                'controller' => 'User',
+                'action' => 'login',
+                'prefix' => 'admin'
+            ]
         ]);
         $this->viewBuilder()->layout('admin');
     }

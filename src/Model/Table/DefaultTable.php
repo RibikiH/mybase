@@ -141,4 +141,59 @@ class DefaultTable extends Table
             return false;
         }
     }
+
+    public function paging($data, $fields)
+    {
+        try {
+            $columns = $data['columns'];
+            $order_columns = reset($data['order']);
+
+            $conditions = [
+                $this->_alias.'.deleted' => Configure::read('flag_off')
+            ];
+
+            $searchable_columns = [];
+            foreach ($columns as $column) {
+                if ($column['searchable'] == 'true') {
+                    $searchable_columns[] = $column['name'];
+                }
+            }
+
+            if (!empty($data['search']['value']))
+            {
+                foreach ($searchable_columns as $column_search) {
+                    $conditions['OR'][ $this->_alias .'.'. $column_search . ' LIKE'] = '%'. $data['search']['value'] .'%';
+                }
+            }
+
+            $result = $this->find('all', [
+                'fields' => $fields,
+                'conditions' => $conditions,
+                'limit' => $data['length'],
+                'offset' => $data['start'],
+                'order' => [
+                    $columns[$order_columns['column']]['name'] => $order_columns['dir']
+                ]
+            ])->hydrate(false)->toArray();
+
+            $count = $this->countAll();
+
+            $response = [];
+            foreach ($result as $item) {
+                $item['created'] = date('d-m-Y H:i', $item['created']);
+                $item_value = array_values($item);
+                $response[] = $item_value;
+            }
+
+            return [
+                'draw' => $data['draw'] + 1,
+                'recordsTotal' => $count,
+                'recordsFiltered' => $count,
+                'data' => $response
+            ];
+        } catch (Exception $e) {
+            Log::write('debug', $e->getMessage());
+            return false;
+        }
+    }
 }

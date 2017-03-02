@@ -2,7 +2,7 @@
 <html>
 <head><?= $this->element('Admin/admin_head'); ?></head>
 <body class="hold-transition skin-blue sidebar-mini">
-    <div id="wrapper">
+    <div class="wrapper">
         <header class="main-header">
             <?= $this->element('Admin/header'); ?>
         </header>
@@ -23,6 +23,9 @@
                 <?= $this->fetch('content') ?>
             </section>
         </div>
+
+        <?= $this->element('Admin/common_modal'); ?>
+        <?= $this->element('Admin/footer'); ?>
     </div>
 <footer>
 </footer>

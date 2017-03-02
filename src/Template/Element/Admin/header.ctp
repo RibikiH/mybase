@@ -12,11 +12,12 @@
         <ul class="nav navbar-nav">
             <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="<?= $this->Url->build('/img/user.png', true); ?>" class="user-image" alt="User Image">
                     <span class="hidden-xs"><?= isset($authUser) ? $authUser['username'] : 'Admin';?></span>
                 </a>
                 <ul class="dropdown-menu">
                     <li class="user-header">
-                        <img src="<?= $this->Url->build('/img/user.png'); ?>" class="img-circle" alt="User Image">
+                        <img src="<?= $this->Url->build('/img/user.png', true); ?>" class="img-circle" alt="User Image">
 
                         <p>
                             <?= isset($authUser) ? $authUser['username'] : 'Admin';?>
@@ -24,7 +25,7 @@
                     </li>
                     <li class="user-footer">
                         <div class="pull-right">
-                            <a href="#" class="btn btn-default btn-flat"><?= __('Sign out') ?></a>
+                            <a href="<?= $this->Url->build('/admin/user/logout', true); ?>" class="btn btn-default btn-flat"><?= __('Sign out') ?></a>
                         </div>
                     </li>
                 </ul>

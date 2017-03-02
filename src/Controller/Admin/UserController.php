@@ -9,14 +9,14 @@ use Cake\Event\Event;
  * Class UserController
  * @property UserTable User
  */
-
 class UserController extends AdminController
 {
-	public function beforeFilter(Event $event)
-	{
-		parent::beforeFilter($event);
-		$this->Auth->allow(['logout', 'login', 'add', 'index']);
-	}
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->set('menu', 'user');
+        $this->Auth->allow(['logout']);
+    }
 
     public function index()
     {
@@ -48,8 +48,7 @@ class UserController extends AdminController
 
     public function add()
     {
-        if ($this->request->is('post'))
-        {
+        if ($this->request->is('post')) {
             $data = $this->request->data;
 
             if ($this->User->add($data)) {
@@ -65,7 +64,7 @@ class UserController extends AdminController
     public function edit($id)
     {
         if ($this->request->is('get')) {
-            $user = $this->User->getById($id, ['id', 'username', 'role']);
+            $user = $this->User->getById($id, ['id', 'email', 'username', 'role']);
 
             $this->set('user', $user);
         }
@@ -78,8 +77,7 @@ class UserController extends AdminController
             }
             $data['id'] = $id;
 
-            if ($this->User->update($data))
-            {
+            if ($this->User->update($data)) {
                 $this->Flash->success(__('Edit user success'));
                 return $this->redirect(['action' => 'index']);
             }
@@ -92,5 +90,19 @@ class UserController extends AdminController
             $this->Flash->success(__('Delete user success'));
             return $this->redirect(['action' => 'index']);
         }
+    }
+
+    public function getData()
+    {
+        $data = $this->request->query;
+        $result = $this->User->paging($data, ['username', 'email', 'role', 'created', 'id']);
+
+        $this->set($result);
+        $this->set('_serialize', ['draw', 'recordsTotal', 'recordsFiltered', 'data']);
+    }
+
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
     }
 }

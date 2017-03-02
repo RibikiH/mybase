@@ -1,6 +1,5 @@
 <?php
     $this->assign('title', __('Dashboard'));
-    $this->set('menu', 'dashboard');
 ?>
 
 <div class="row">

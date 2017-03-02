@@ -105,10 +105,10 @@ AdminController.uploadFile = function(event, e, id, type) {
 
 $(function() {
 	$('#delete_modal').on('show.bs.modal', function (event) {
-		var button = $(event.relatedTarget);
-		var href = button.data('href');
-
+		var button = $(event.relatedTarget),
+			model = button.data('model'),
+			id = button.data('id');
 		var modal = $(this);
-		modal.find('.btn-primary').attr('onclick', 'window.location.replace("'+href+'")');
+		modal.find('form').attr('action', baseUrl + 'admin/' + model + '/delete/' + id);
 	});
-})
+});

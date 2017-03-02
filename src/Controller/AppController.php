@@ -37,6 +37,8 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         Configure::load('common');
+
+        date_default_timezone_set("Asia/Bangkok");
     }
 
     /**

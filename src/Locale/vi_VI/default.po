@@ -1,11 +1,11 @@
 msgid "Email or password is incorrect"
 msgstr "Email hoặc mật khẩu sai"
 
-msgid "Add member"
-msgstr "Thêm thành viên"
+msgid "Add user"
+msgstr "Thêm người dùng"
 
 msgid "Username"
-msgstr "Tên đăng nhập"
+msgstr "Tên người dùng"
 
 msgid "Password"
 msgstr "Mật khẩu"
@@ -45,3 +45,75 @@ msgstr "Xem thêm"
 
 msgid "Users"
 msgstr "Người dùng"
+
+msgid "Created at"
+msgstr "Ngày tạo"
+
+msgid "Information"
+msgstr "Thông tin"
+
+msgid "Edit user"
+msgstr "Sửa người dùng"
+
+msgid "List user"
+msgstr "Danh sách thành viên"
+
+msgid "Add"
+msgstr "Thêm"
+
+msgid "No data available in table"
+msgstr "Không có dữ liệu"
+
+msgid "Showing _START_ to _END_ of _TOTAL_ entries"
+msgstr "Hiển thị _START_ tới _END_ của _TOTAL_ kết quả"
+
+msgid "Showing 0 to 0 of 0 entries"
+msgstr "Hiển thị 0 tới 0 của 0 kết quả"
+
+msgid "(filtered from _MAX_ total entries)"
+msgstr "(lọc từ _MAX_ tổng số kết quả)"
+
+msgid "Show _MENU_ entries"
+msgstr "Hiển thị _MENU_ kết quả"
+
+msgid "Loading..."
+msgstr "Đang tải..."
+
+msgid "Processing..."
+msgstr "Đang thực hiện..."
+
+msgid "Search:"
+msgstr "Tìm kiếm:"
+
+msgid "No matching records found"
+msgstr "Không tìm thấy kết quả nào"
+
+msgid "First"
+msgstr "Trang đầu"
+
+msgid "Last"
+msgstr "Cuối"
+
+msgid "Next"
+msgstr "Tiếp"
+
+msgid "Previous"
+msgstr "Quay Lại"
+
+msgid ": activate to sort column ascending"
+msgstr ": kích hoạt để sắp xếp cột tăng dần"
+
+msgid ": activate to sort column descending"
+msgstr ": kích hoạt để sắp xếp cột giảm dần"
+
+msgid "Delete"
+msgstr "Xóa"
+
+msgid "Confirm"
+msgstr "Xác nhận"
+
+msgid "Confirm delete?"
+msgstr "Xác nhận xóa?"
+
+msgid "Close"
+msgstr "Đóng"
