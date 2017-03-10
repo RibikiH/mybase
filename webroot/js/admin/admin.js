@@ -41,7 +41,7 @@ AdminController.renderTable = function() {
 		}],
 		"aaSorting": []
 	});
-}
+};
 
 AdminController.renderEditor = function() {
 	tinymce.init({
@@ -54,9 +54,9 @@ AdminController.renderEditor = function() {
 		],
 		toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
 		content_css: '//www.tinymce.com/css/codepen.min.css',
-		menubar: false,
+		menubar: false
 	});
-}
+};
 
 AdminController.uploadFile = function(event, e, id, type) {
 	var fileExtension = ['jpeg', 'jpg', 'JPEG', 'png', 'gif', 'bmp'];
@@ -101,7 +101,16 @@ AdminController.uploadFile = function(event, e, id, type) {
 			$(e).parents('.item').find('.remove-img').addClass('hidden');
 		}
 	}
-}
+};
+
+AdminController.toggleNav = function() {
+    if ($('body').hasClass('sidebar-collapse')) {
+        $.removeCookie('toggle_nav');
+    } else {
+        $.cookie('toggle_nav', true, { expires: 7 });
+    }
+};
+
 
 $(function() {
 	$('#delete_modal').on('show.bs.modal', function (event) {

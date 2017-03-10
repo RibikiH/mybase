@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><?= $this->element('Admin/admin_head'); ?></head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini <?= isset($_COOKIE['toggle_nav']) ? 'sidebar-collapse' : ''; ?>">
     <div class="wrapper">
         <header class="main-header">
             <?= $this->element('Admin/header'); ?>

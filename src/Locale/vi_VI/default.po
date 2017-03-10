@@ -117,3 +117,9 @@ msgstr "Xác nhận xóa?"
 
 msgid "Close"
 msgstr "Đóng"
+
+msgid "Show full navigation"
+msgstr "Hiện đầy đủ chuyển hướng"
+
+msgid "Manager"
+msgstr "Quản lý"

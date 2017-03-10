@@ -4,7 +4,7 @@
 </a>
 <nav class="navbar navbar-static-top">
     <!-- Sidebar toggle button-->
-    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" onclick="AdminController.toggleNav()">
         <span class="sr-only">Toggle navigation</span>
     </a>
 

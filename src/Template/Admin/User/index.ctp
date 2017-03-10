@@ -52,7 +52,7 @@
                 {"name" : "email"},
                 {"name" : "role", "searchable": false},
                 {"name" : "created", "searchable": false},
-                {"name" : "delete"}
+                {"name" : "delete", "searchable": false, "sortable": false}
             ],
             "columnDefs": [{
                 "targets": [0],

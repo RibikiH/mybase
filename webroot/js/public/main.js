@@ -1,64 +1,55 @@
-/**
- * auto load js for this area
- */
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
-if ('undefined' == $.type(PublicController)) {
-	var PublicController = {};
-}
-if (!$.isPlainObject(PublicController)) {
-	PublicController = {};
-}
+logInWithFacebook = function() {
+    FB.login(function(response) {
+        if (response.authResponse) {
+            FB.api('/me', function(response) {
+                console.log(response);
+                return false;
+            });
+        } else {
+            console.log('User cancelled login or did not fully authorize.');
+        }
+    }, {
+    	scope: 'email',
+        return_scopes: true
+    });
+    return false;
+};
 
-$(function() {
+logOutFacebook = function () {
+    FB.logout(function(response) {
+        console.log(response);
+    });
+};
 
-	$('header .nav-menu').hover(function() {
-		$(this).find('ul').removeClass('hidden');
-	}, function() {
-		$(this).find('ul').addClass('hidden');
-	});
+window.fbAsyncInit = function() {
+    FB.init({
+        appId: '1252089301545816',
+        status : true,
+        cookie: true, // This is important, it's not enabled by default
+        oauth  : true,
+        version: 'v2.8'
+    });
 
-	$('#lightSlider').lightSlider({
-		item: 1,
-		slideMargin: 10,
-		adaptiveHeight: true,
-		controls: false,
-	});
-
-	$('img.lazy').lazy({
-		afterLoad: function (image) {
-			$height = image.height();
-			$width = image.width();
-			$container = image.closest('div');
-
-			if ($container.hasClass('lazyBlock')) {
-				if ($width > $height) {
-					image.css({
-						'height': '100%',
-						'left': '-33%'
-					});
-				} else if ($width < $height) {
-					image.css({
-						'width': '100%',
-						'top': '-33%'
-					});
-				} else {
-					image.css('width', '100%');
-				}
-			}
-		}
-	});
-
-	var postSlider = $('#postSlider').lightSlider({
-		item: 1,
-		controls: false,
-	});
-
-	$('.hot-news .control-slider .next').click(function(e) {
-		e.preventDefault();
-		postSlider.goToNextSlide();
-	});
-	$('.hot-news .control-slider .back').click(function(e) {
-		e.preventDefault();
-		postSlider.goToPrevSlide();
-	});
-});
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            // the user is logged in and has authenticated your
+            // app, and response.authResponse supplies
+            // the user's ID, a valid access token, a signed
+            // request, and the time the access token
+            // and signed request each expire
+            var uid = response.authResponse.userID;
+            var accessToken = response.authResponse.accessToken;
+            FB.api('/me', function(response) {
+                console.log(response);
+            });
+        }
+    });
+};

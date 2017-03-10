@@ -46,11 +46,6 @@
             </div>
             <div class="row">
                 <div class="col-xs-6">
-                    <div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox"> <?= __("Remember Me") ?>
-                        </label>
-                    </div>
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-6">
