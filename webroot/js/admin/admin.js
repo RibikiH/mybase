@@ -107,10 +107,50 @@ AdminController.toggleNav = function() {
     if ($('body').hasClass('sidebar-collapse')) {
         $.removeCookie('toggle_nav');
     } else {
-        $.cookie('toggle_nav', true, { expires: 7 });
+        $.cookie('toggle_nav', true, { expires: 7, path: '/' });
     }
 };
 
+AdminController.insertParam = function(key, value) {
+    key = encodeURI(key);
+    value = encodeURI(value);
+    var href = location.protocol + '//' + location.host + location.pathname;
+    var kvp = document.location.search.substr(1).split('&');
+
+    if ( kvp[0] == '' ) {
+        kvp.splice( 0, 1 );
+    }
+
+    var i=kvp.length; var x; while(i--) {
+        x = kvp[i].split('=');
+
+        if (x[0] == 'page' && value == 1) {
+            kvp.splice( i , 1 );
+            break;
+        }
+
+        if (x[0] == key) {
+            x[1] = value;
+            kvp[i] = x.join('=');
+            break;
+        }
+    }
+
+    if(i<0) {kvp[kvp.length] = [key,value].join('=');}
+    window.history.pushState("tring", "Title", href + "?" + kvp.join('&'));
+};
+
+AdminController.getParams = function (key) {
+    var kvp = document.location.search.substr(1).split('&');
+    for ( i=0; i < kvp.length; i++) {
+        x = kvp[i].split('=');
+
+        if (x[0] == key) {
+            return x[1];
+        }
+    }
+    return false;
+};
 
 $(function() {
 	$('#delete_modal').on('show.bs.modal', function (event) {

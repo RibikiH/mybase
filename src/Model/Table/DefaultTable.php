@@ -172,7 +172,7 @@ class DefaultTable extends Table
                 'limit' => $data['length'],
                 'offset' => $data['start'],
                 'order' => [
-                    $columns[$order_columns['column']]['name'] => $order_columns['dir']
+                    $columns[$order_columns['column']]['name'] => !empty($order_columns['dir']) ? $order_columns['dir'] : 'asc'
                 ]
             ])->hydrate(false)->toArray();
 

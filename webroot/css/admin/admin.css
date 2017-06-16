@@ -1,3 +1,6 @@
 .callout {
 	cursor: pointer;
 }
+div.dataTables_wrapper div.dataTables_processing {
+	background: rgba(0,0,0,0.2);
+}
